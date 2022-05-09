@@ -3,6 +3,8 @@ package cn.wujitao.service;
 import cn.wujitao.model.domain.Stu;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
 * @author wujitao
 * @description 针对表【stu(用户)】的数据库操作Service
@@ -17,4 +19,10 @@ public interface StuService extends IService<Stu> {
      * @return 新用户id
      */
     long userRegister(String userAccount, String userPassword, String userCheckPassword);
+    Stu doLogin(String userAccount, String userPassword, HttpServletRequest request);
+
+    Stu getSafeStu(Stu originStu);
+
+    int userLogout(HttpServletRequest request);
+
 }
